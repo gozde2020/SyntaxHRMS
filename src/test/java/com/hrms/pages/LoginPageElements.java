@@ -10,17 +10,23 @@ import com.hrms.testbase.BaseClass;
 public class LoginPageElements extends BaseClass{
 	
 	@FindBy(id = "txtUsername")
-	public WebElement userNameTextBox;
-	@FindBy(id = "txtPassword")
+	public WebElement userNametextBox;
+	
+	@FindBy(xpath = "//input[@id = 'txtPassword']")
 	public WebElement passwordTextBox;
-	@FindBy(id = "btnLogin")
-	public WebElement loginButton;
+	
+	@FindBy(css = "input#btnLogin")
+    public WebElement btnLogin;
+	
+	@FindBy(id = "divLogo")
+	public WebElement syntaxLogo;
 	
 	@FindBy(id = "spanMessage")
-	public WebElement spanMsg;
+	public WebElement spanMessage;
 	
-	@FindBy(xpath = "//div[@id = ‘logInPanelHeading’]")
-	WebElement loginPanelHeading;
+	@FindBy(id = "logInPanelHeading")
+	public WebElement loginPanelHeading;
+	
 	public LoginPageElements() {
 		PageFactory.initElements(driver, this);
 	}

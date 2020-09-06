@@ -6,16 +6,19 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.hrms.testbase.BaseClass;
+import com.hrms.testbase.PageInitilizer;
 
-public class CommonMethods extends BaseClass{
+public class CommonMethods extends PageInitilizer{
 	
 	/*
 	 * 
 	 * methods that sends text to any 
-	 * 
+	 * @param element
+	 * @param text
 	 * 
 	 */
 	public static void sendText(WebElement element,String text ) {
+		
 		
 		element.clear();
 		element.sendKeys(text);
@@ -23,7 +26,9 @@ public class CommonMethods extends BaseClass{
 
 	
 	/*
+	 *  Method return Object of JavaScript Executor type
 	 * 
+	 * @return js object
 	 * 
 	 * 
 	 * 
@@ -92,8 +97,5 @@ public class CommonMethods extends BaseClass{
 		
 		
 		
-		
-		
-		
-	}
+}
 }
