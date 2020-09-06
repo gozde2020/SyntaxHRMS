@@ -10,7 +10,6 @@ public class ConfigsReader {
 	static Properties prop;
 	public static void readProperties(String filePath)  {
 		
-		
 		try {
 	
 		FileInputStream fis = new FileInputStream(filePath);
@@ -24,8 +23,6 @@ public class ConfigsReader {
 			e.printStackTrace();
 		}
 	}
-	
-	
 	
 	public static String getPropValue(String key) {
 		return prop.getProperty(key);
