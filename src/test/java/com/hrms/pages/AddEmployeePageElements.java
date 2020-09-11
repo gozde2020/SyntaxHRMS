@@ -18,7 +18,7 @@ public class AddEmployeePageElements extends BaseClass {
 		public WebElement middleName;
 		
 		@FindBy(xpath = "//input[@id = 'lastName']")
-		public WebElement lastName;
+		public WebElement lastNameField;
 		
 		@FindBy(xpath = "//input[@id = 'photofile']")
 		public WebElement chooseFile;

@@ -1,6 +1,14 @@
 package com.hrms.utils;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -46,7 +54,7 @@ public class CommonMethods extends PageInitilizer{
 	 */
 	
 	public static void jsClick(WebElement element) {
-		getJSExecutor().executeScript("argument[0].click();", element);
+		getJSExecutor().executeScript("arguments[0].click();", element);
 	}
 	
 	/*
@@ -93,9 +101,38 @@ public class CommonMethods extends PageInitilizer{
 		waitForClickability(element);
 		
 		element.click();
+	}
+	
+	public static void waitForVisibility (WebElement element) {
+			getWaitObject().until(ExpectedConditions.visibilityOf(element));
+		}
 		
 		
+
+	/**
+	 * Method that will take a screenshot and store with name in specified location with .png extension
+	 * @param fileName
+	 */
+	public static void takeScreenshot(String fileName) {
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File src = ts.getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(src, new File(Constants.SCREENSHOT_FILEPATH + fileName +getTimeStamp()+ ".png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static String getTimeStamp() {
+		
+		Date date = new Date();
 		
 		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss");
+		return sdf.format(date);
+		
+	}
 }
-}
+

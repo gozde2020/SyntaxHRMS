@@ -1,0 +1,8 @@
+com/hrms/testbase/PageInitilizer.class
+com/hrms/pages/AddEmployeePageElements.class
+com/hrms/pages/DashboardPageElements.class
+com/hrms/utils/ConfigsReader.class
+com/hrms/testbase/BaseClass.class
+com/hrms/pages/PageWithDetailsAndPictureElements.class
+com/hrms/utils/CommonMethods.class
+com/hrms/pages/LoginPageElements.class

@@ -1,15 +1,9 @@
 package com.hrms.testcases;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.hrms.pages.DashboardPageElements;
-import com.hrms.pages.LoginPageElements;
 import com.hrms.utils.CommonMethods;
 import com.hrms.utils.ConfigsReader;
 
@@ -18,7 +12,7 @@ public class LoginTest extends CommonMethods {
 	@Test(groups = "smoke")
 	public void validLogin() {
 		
-		LoginPageElements login = new LoginPageElements();
+		//LoginPageElements login = new LoginPageElements(); wwe already initilize it in Page initilazer!!!!
 		
 		
 		sendText(login.userNametextBox,ConfigsReader.getPropValue("username"));
@@ -26,18 +20,17 @@ public class LoginTest extends CommonMethods {
 		click(login.btnLogin);
 	
 		
-		DashboardPageElements dashboard = new DashboardPageElements();
-		AssertJUnit.assertTrue(dashboard.welcomeMsg.isDisplayed());
+		
+		Assert.assertTrue(dash.welcomeMsg.isDisplayed());
 		
 	}
-	@Test(groups="regression",dataProvider="invalidCredentials")
+	@Test(groups="regression",dataProvider="invalidCredentials")//-->invalidCredentials() olmali
 	public void invalidLogin(String username, String password, String errorMessage) {
 		
-		LoginPageElements login = new LoginPageElements();
 		sendText(login.userNametextBox,username);
 		sendText(login.passwordTextBox,password);
 		click(login.btnLogin);
-		AssertJUnit.assertEquals(login.spanMessage.getText(), errorMessage);
+		Assert.assertEquals(login.spanMessage.getText(), errorMessage);
 		
 		
 		
@@ -54,7 +47,4 @@ public class LoginTest extends CommonMethods {
 		
 		
 	}
-	
-	
-
 }

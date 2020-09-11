@@ -31,6 +31,9 @@ public class DashboardPageElements extends BaseClass {
 	@FindBy(id = "welcome")
 	public WebElement welcomeMsg;
 	
+	@FindBy(id = "menu_pim_addEmployee")
+	public WebElement addEmpButton;
+	
 	public DashboardPageElements() {
 	
 		PageFactory.initElements(driver, this);

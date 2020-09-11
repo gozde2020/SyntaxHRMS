@@ -9,6 +9,7 @@ import com.hrms.testbase.BaseClass;
 
 public class LoginPageElements extends BaseClass{
 	
+
 	@FindBy(id = "txtUsername")
 	public WebElement userNametextBox;
 	

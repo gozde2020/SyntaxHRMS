@@ -26,7 +26,7 @@ public class ConfigsReader {
 		}
 	}
 	
-	public static String getPropValue(String key) {
+	public static String getPropValue(String key) {//the key in configuration.nproperties
 		return prop.getProperty(key);
 	}
 }
